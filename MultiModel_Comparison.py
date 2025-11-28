@@ -6,7 +6,7 @@ import pandas as pd
 import io
 from google.colab import files
 
-print("📤 Upload train_updated.csv, test_updated.csv, sample_submission_updated.csv")
+print("Upload train_updated.csv, test_updated.csv, sample_submission_updated.csv")
 uploaded = files.upload()
 
 train_key  = [k for k in uploaded.keys() if "train_updated" in k][0]
@@ -131,7 +131,7 @@ probability_files = {}
 binary_files = {}
 
 for name, model in models.items():
-    print(f"\n🚀 Training {name} ...")
+    print(f"\n Training {name} ...")
     model.fit(X_train, y_train)
 
     # Validation AUC
@@ -170,13 +170,13 @@ for name, model in models.items():
     print(f"✔ Saved binary submission: {binary_filename}")
 
 
-print("\n🎉 DONE! ALL SUBMISSIONS READY.")
+print("\n DONE! ALL SUBMISSIONS READY.")
 
-print("\n📁 Probability submissions:")
+print("\n Probability submissions:")
 for name, f in probability_files.items():
     print(f"{name:20s} -> {f}")
 
-print("\n📁 Binary submissions (0/1):")
+print("\n Binary submissions (0/1):")
 for name, f in binary_files.items():
     print(f"{name:20s} -> {f}")
 
