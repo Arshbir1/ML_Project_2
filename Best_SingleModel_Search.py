@@ -2,7 +2,7 @@ import pandas as pd
 from google.colab import files
 import io
 
-print("📤 Upload train_updated.csv, test_updated.csv, sample_submission_updated.csv")
+print("Upload train_updated.csv, test_updated.csv, sample_submission_updated.csv")
 uploaded = files.upload()
 
 # Automatically detect correct uploaded filenames
@@ -77,7 +77,7 @@ for name, model in models.items():
 best_model_name = max(scores, key=scores.get)
 best_model = models[best_model_name]
 
-print("\n🔥 BEST MODEL:", best_model_name, "AUC =", scores[best_model_name])
+print("\nBEST MODEL:", best_model_name, "AUC =", scores[best_model_name])
 
 # Train best model on full data
 best_model.fit(X, y)
@@ -93,7 +93,7 @@ submission = pd.DataFrame({
 
 submission.to_csv("final_submission.csv", index=False)
 
-print("📁 Saved final_submission.csv")
+print("Saved final_submission.csv")
 
 files.download("final_submission.csv")
 
@@ -119,7 +119,7 @@ df[predcol] = (df[predcol] >= threshold).astype(int)
 # Save cleaned file with correct header and no index
 df.to_csv(OUT, index=False)
 
-print("✅ Saved binary submission to:", OUT)
+print("Saved binary submission to:", OUT)
 print(df.head())
 
 # Download to your laptop for Kaggle upload
